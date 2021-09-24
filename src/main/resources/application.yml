@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    database: HSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+
+  datasource:
+    url: jdbc:hsqldb:mem:test;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
