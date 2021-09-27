@@ -17,16 +17,14 @@ public class Checkout {
     @GeneratedValue
     private Long id;
 
-    private BigDecimal Delivery;
-
-    private BigDecimal subTotal;
-
-    private BigDecimal total;
-
     @OneToMany
     @JoinColumn(name = "product_id")
     private List<Product> products;
 
+    private BigDecimal subTotal;
 
+    private BigDecimal Delivery;
+
+    private BigDecimal total;
 
 }

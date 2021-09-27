@@ -11,18 +11,25 @@ import java.util.List;
 public class CheckoutController {
 
     private final CheckoutService checkoutService;
-    public CheckoutController(CheckoutService checkoutService){
+
+    public CheckoutController(CheckoutService checkoutService) {
         this.checkoutService = checkoutService;
     }
 
     @PostMapping
-   public Checkout addProducts(@RequestBody List<Long> productIds){
+    public Checkout addProducts(@RequestBody List<Long> productIds) {
         return checkoutService.create(productIds);
     }
 
     @PutMapping("/{id}")
-    public Checkout update(@PathVariable Long id, @RequestBody List<Long> productIds){
+    public Checkout update(@PathVariable Long id, @RequestBody List<Long> productIds) {
         return checkoutService.update(id, productIds);
+    }
+
+    @GetMapping("/{id}")
+    public Checkout getOne(@PathVariable Long id,
+                           @RequestParam(value = "order", required = false, defaultValue = "") String order) {
+        return checkoutService.getOne(id, order);
     }
 
 }
